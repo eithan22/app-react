@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Keyboard } from 'react-native';
+import React, { useState } from "react";
+import {
+  Keyboard,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function TablaMultiplicar() {
-  const [numero, setNumero] = useState('');
+  const [numero, setNumero] = useState("");
   const [tabla, setTabla] = useState([]); // Aquí guardaremos la lista de resultados
 
   const generarTabla = () => {
-    // Esto es un detalle profesional: oculta el teclado del celular al presionar el botón
-    Keyboard.dismiss(); 
+    Keyboard.dismiss();
 
     const num = parseInt(numero);
 
     // Verificamos que se haya ingresado un número
     if (isNaN(num)) {
-      setTabla(['Por favor, ingresa un número válido.']);
+      setTabla(["Por favor, ingresa un número válido."]);
       return;
     }
 
@@ -22,7 +29,7 @@ export default function TablaMultiplicar() {
     for (let i = 1; i <= 13; i++) {
       nuevosResultados.push(`${num} x ${i} = ${num * i}`);
     }
-    
+
     // Guardamos la lista completa para mostrarla en pantalla
     setTabla(nuevosResultados);
   };
@@ -30,7 +37,7 @@ export default function TablaMultiplicar() {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Tabla de Multiplicar</Text>
-      
+
       <TextInput
         style={styles.input}
         placeholder="Ingresa un número base"
@@ -59,57 +66,57 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#F5F5F5',
-    alignItems: 'center',
+    backgroundColor: "#F5F5F5",
+    alignItems: "center",
     paddingTop: 50,
   },
   titulo: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    color: '#333',
+    color: "#333",
   },
   input: {
-    width: '100%',
+    width: "100%",
     height: 55,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 10,
     paddingHorizontal: 15,
     marginBottom: 15,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
   },
   boton: {
-    backgroundColor: '#FF8C00', // Un color naranja para diferenciar esta pantalla
+    backgroundColor: "#FF8C00", // Un color naranja para diferenciar esta pantalla
     padding: 15,
     borderRadius: 10,
-    width: '100%',
-    alignItems: 'center',
+    width: "100%",
+    alignItems: "center",
     marginBottom: 20,
   },
   textoBoton: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: "white",
+    fontWeight: "bold",
     fontSize: 18,
   },
   listaContainer: {
-    width: '100%',
+    width: "100%",
     flex: 1,
   },
   filaResultado: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 15,
     borderRadius: 8,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#eee',
-    alignItems: 'center',
+    borderColor: "#eee",
+    alignItems: "center",
   },
   textoResultado: {
     fontSize: 20,
-    fontWeight: '500',
-    color: '#444',
-  }
+    fontWeight: "500",
+    color: "#444",
+  },
 });

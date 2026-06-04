@@ -3,16 +3,13 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 export default function PaginaInicial() {
   return (
     <View style={styles.container}>
-      {/* Asegúrate de haber puesto una foto tuya en la carpeta assets.
-        Si aún no la tienes, puedes dejar esto así por ahora o cambiar 
-        el nombre 'mi-foto.jpg' por el nombre real de tu imagen.
-      */}
+      {/*imagen */}
       <Image 
         source={require('@/assets/images/Yo.jpg')} 
         style={styles.foto} 
       />
 
-      {/* Tus datos personales */}
+      {/*  datos personales */}
       <Text style={styles.titulo}>Mi Perfil</Text>
       <Text style={styles.texto}>Nombre: [Eithan Leonardo]</Text>
       <Text style={styles.texto}>Apellido: [Read]</Text>
